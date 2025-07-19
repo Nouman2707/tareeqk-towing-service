@@ -69,6 +69,47 @@ php artisan route:clear
 php artisan cache:clear
 php artisan serve
 ```
+## 🖥️ Local Network Access
+
+To make the Laravel backend accessible on your **local network** (e.g., from a mobile device or another computer on the same Wi-Fi), run the following command:
+
+```bash
+php artisan serve --host=192.168.1.76 --port=8000
+```
+
+⚠️ **Note:** Replace `192.168.1.76` with your actual local IP address. You can find it using:
+* `ipconfig` (on Windows)
+* `ifconfig` or `ip a` (on macOS/Linux)
+
+Once the server is running, access your Laravel app via: **http://192.168.1.76:8000** on any device connected to the same network.
+
+**Important:** Ensure your firewall allows connections to port `8000`.
+
+### Finding Your Local IP Address
+
+**Windows:**
+```cmd
+ipconfig
+```
+Look for "IPv4 Address" under your active network adapter.
+
+**macOS/Linux:**
+```bash
+# Option 1
+ifconfig
+
+# Option 2
+ip a
+
+# Option 3 (macOS)
+ipconfig getifaddr en0
+```
+
+### Update API Base URL
+
+When accessing from other devices, update your API base URL from:
+- `http://localhost:8000/api` 
+- To: `http://YOUR_LOCAL_IP:8000/api` (e.g., `http://192.168.1.76:8000/api`)
 
 ## 📡 API Endpoints
 
